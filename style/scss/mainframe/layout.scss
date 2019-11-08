@@ -1,0 +1,523 @@
+@charset "utf-8";
+/*******************************************************************************
+ * version 1.0 release;
+ * copyright 2019
+ ******************************************************************************/
+@import '../abstracts/variables',
+'../abstracts/function',
+'../abstracts/mixins';
+
+@-webkit-keyframes float {
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes float {
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+}
+
+@include breakpoint(md) {
+  @-webkit-keyframes float {
+    50% {
+      -webkit-transform: translateY(-7px);
+      transform: translateY(-7px);
+    }
+  }
+
+  @keyframes float {
+    50% {
+      -webkit-transform: translateY(-7px);
+      transform: translateY(-7px);
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  @-webkit-keyframes float {
+    50% {
+      -webkit-transform: translateY(-12px);
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes float {
+    50% {
+      -webkit-transform: translateY(-12px);
+      transform: translateY(-12px);
+    }
+  }
+}
+
+/**
+ 頁首選單
+ */
+.nav-wrapper {
+  max-width: 85%;
+  margin: 20px auto 0;
+
+  @include breakpoint(md) {
+    max-width: 78%;
+    margin: 40px auto 0;
+  }
+
+  @include breakpoint(lg) {
+    max-width: 960px;
+  }
+}
+
+/**
+ 頁面內容
+ */
+.warp {
+  min-height: calc(100vh - 100px);
+  background-image: url("../../images/picture/pic_01.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 145%;
+  margin-top: -56px;
+
+  @include breakpoint(md) {
+    background-size: 140%;
+    margin-top: -40px;
+  }
+  @include breakpoint(lg) {
+    background-size: contain;
+  }
+
+
+  &__inner {
+    padding-top: 50vw;
+
+    @include breakpoint(lg) {
+      padding-top: 35vw;
+    }
+  }
+}
+
+/**
+ 部分
+ */
+.section {
+  &:nth-child(2n+1) {
+    background-color: #F9F7F2;
+  }
+
+  &__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 50px 30px 50px;
+
+    @include breakpoint(md) {
+      padding: 100px 30px 80px;
+    }
+    @include breakpoint(lg) {
+      padding: 100px 0 105px;
+    }
+
+    .section--index & {
+      padding-top: 0;
+    }
+
+    &--row {
+      padding-bottom: 70px;
+
+      @include breakpoint(md) {
+        display: flex;
+      }
+    }
+  }
+
+  &__content {
+    @include breakpoint(md) {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    @include breakpoint(lg) {
+      max-width: 700px;
+    }
+
+    &--col {
+      @include breakpoint(md) {
+        flex: 1 1 50%;
+      }
+
+      .section {
+        &__title {
+          margin-bottom: 30px;
+
+          @include breakpoint(md) {
+            margin-bottom: 50px;
+          }
+        }
+
+        &__subtitle {
+          font-weight: bold;
+          font-size: px-em(20);
+          line-height: 36px;
+          color: $yellow;
+
+          @include breakpoint(md) {
+            font-size: px-em(28);
+            line-height: 36px;
+            margin-bottom: .75rem;
+          }
+        }
+
+        &__desc + .section__subtitle {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-size: px-em(26);
+    font-weight: bold;
+
+    @include breakpoint(md) {
+      font-size: px-em(36);
+    }
+
+    &--index {
+      text-align: center;
+      font-size: px-em(40);
+      line-height: 46px;
+      margin-bottom: 16px;
+
+      @include breakpoint(md) {
+        font-size: px-em(60);
+        line-height: 76px;
+      }
+    }
+  }
+
+  &__desc {
+    line-height: 26px;
+    @include breakpoint(md) {
+      font-size: px-em(20);
+      line-height: 30px;
+    }
+
+    &  + & {
+      margin-top: 1rem;
+    }
+    &  + &.text--strong {
+      margin-top: 30px;
+
+      @include breakpoint(md) {
+        margin-top: 50px;
+      }
+    }
+
+    &--index {
+      font-size: px-em(18);
+      font-weight: normal;
+      line-height: 26px;
+      margin-bottom: 24px;
+
+      @include breakpoint(md) {
+        font-size: px-em(24);
+        line-height: 36px;
+        max-width: 640px;
+        margin: 0 auto 24px;
+      }
+      @include breakpoint(lg) {
+        font-size: px-em(28);
+        max-width: none;
+      }
+    }
+  }
+  &__phone {
+    &-outer {
+      width: 240px;
+      height: 400px;
+      overflow: hidden;
+      margin: 0 auto 24px;
+      position: relative;
+
+      @include breakpoint(md) {
+        height: auto;
+        width: 360px;
+        margin-left: -60px;
+      }
+      @include breakpoint(lg) {
+        width: 380px;
+        margin-left: 0;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        height: 80px;
+        width: 100%;
+        background: linear-gradient(rgba(#fff, 0), #fff 80%);
+
+        @include breakpoint(md) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/**
+ IG圖片牆
+ */
+.ig-wrap {
+  $papa: #{&};
+  margin: 0 -30px;
+  padding: 0 30px 40px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "one one two two three three four four" ". five five six six seven seven ." "eight eight nine nine ten ten eleven eleven";
+
+  @include breakpoint(md) {
+    grid-template-rows: 0.5fr 1fr 0.5fr;
+    grid-template-areas: ". . one two three  four . ." ". five five six six seven seven ." ". . eight nine ten eleven . .";
+  }
+  @include breakpoint(lg) {
+    padding-bottom: 10px;
+  }
+
+  &__img {
+    transition: all 1s;
+    filter: blur(0) drop-shadow(0 2px 2px rgba($dark, 0.1));
+  }
+
+  &__item {
+    transition: all 1s;
+    position: static;
+    transform: scale(0.95);
+    top: 0;
+    $strs: one, two, three, four, five, six, seven, eight, nine, ten, eleven !default;
+    $str_len: length($strs);
+    @for $i from 1 through $str_len {
+      &:nth-child(#{$i}) {
+        grid-area: #{nth($strs, $i)};
+      }
+    }
+
+    #{$papa}--animate & {
+      &:nth-child(1) {
+        transform: translate(-5vw, -5px) scale(1.1);
+        z-index: 9;
+
+        @include breakpoint(md) {
+          transform: translate(-10vw, 60px) scale(1.5);
+        }
+        @include breakpoint(lg) {
+          transform: translate(-100%, 100px) scale(1.5);
+        }
+
+        #{$papa}__img {
+          animation: float 3.5s -3s linear infinite;
+          filter: blur(0.5px) drop-shadow(0 2px 2px rgba($dark, 0.1));
+        }
+      }
+
+      &:nth-child(2) {
+        z-index: 9;
+        transform: translate(40vw, 40px) scale(.8);
+
+        @include breakpoint(md) {
+          transform: translate(25vw, 140px) scale(0.9);
+        }
+        @include breakpoint(lg) {
+          transform: translate(220%, 190px) scale(0.8);
+        }
+
+        #{$papa}__img {
+          animation: float 3.5s 1s linear infinite;
+          filter: blur(3px) drop-shadow(0 2px 2px rgba($dark, 0.1));
+        }
+      }
+
+      &:nth-child(3) {
+        z-index: 8;
+        transform: translate(30vw, -10px) scale(0.5);
+
+        @include breakpoint(md) {
+          transform: translate(22vw, 80px) scale(0.6);
+        }
+        @include breakpoint(lg) {
+          transform: translate(180%, 120px) scale(0.5);
+        }
+
+        #{$papa}__img {
+          animation: float 3.5s -1.5s linear infinite;
+          filter: blur(10px) drop-shadow(0 2px 2px rgba($dark, 0.1));
+        }
+      }
+
+      &:nth-child(4) {
+        z-index: 7;
+        transform: translate(30vw, -10px) scale(0.5);
+
+        @include breakpoint(md) {
+          transform: translate(22vw, 30px) scale(0.5);
+        }
+        @include breakpoint(lg) {
+          transform: translate(180%, 30px) scale(0.4);
+        }
+
+        #{$papa}__img {
+          animation: float 3.5s -3s linear infinite;
+          filter: blur(10px) drop-shadow(0 2px 2px rgba($dark, 0.1));
+        }
+      }
+
+      &:nth-child(5) {
+        z-index: 9;
+        transform: translate(-30vw, -10px) scale(1.5);
+
+        @include breakpoint(md) {
+          transform: translate(-12vw, 50px) scale(0.8);
+        }
+        @include breakpoint(lg) {
+          transform: translate(-65%, 0px) scale(0.65);
+        }
+
+        #{$papa}__img {
+          animation: float 3.5s -2.5s linear infinite;
+        }
+      }
+
+      // main
+      &:nth-child(6) {
+        z-index: 10;
+        transform: scale(2.3) translate(0, -10px);
+
+        @include breakpoint(md) {
+          transform: scale(1.5);
+        }
+        @include breakpoint(lg) {
+          transform: scale(1.4);
+        }
+      }
+
+      &:nth-child(7) {
+        z-index: 8;
+        transform: translate(32vw, 10px) scale(1.1);
+
+        @include breakpoint(md) {
+          transform: translate(12vw, 50px) scale(0.6);
+        }
+        @include breakpoint(lg) {
+          transform: translate(65%, 10px) scale(0.6);
+        }
+
+        #{$papa}__img {
+          animation: float 3.5s 2s linear infinite;
+          filter: blur(2px) drop-shadow(0 2px 2px rgba($dark, 0.1));
+        }
+      }
+
+      &:nth-child(8) {
+        z-index: 8;
+        transform: translate(-22vw, -20px) scale(1.1);
+
+        @include breakpoint(md) {
+          transform: translate(-18vw, -15px) scale(0.8);
+        }
+        @include breakpoint(lg) {
+          transform: translate(-175%, -105px) scale(0.8);
+        }
+
+        #{$papa}__img {
+          animation: float 3.5s 1.5s linear infinite;
+          filter: blur(2px) drop-shadow(0 2px 2px rgba($dark, 0.1));
+        }
+      }
+
+      &:nth-child(9) {
+        z-index: 7;
+        transform: translate(-12vw, -90px) scale(0.8);
+
+        @include breakpoint(md) {
+          transform: translate(-13vw, -130px) scale(0.9);
+        }
+        @include breakpoint(lg) {
+          transform: translate(-110%, -160px) scale(0.9);
+        }
+
+        #{$papa}__img {
+          animation: float 3.5s 3s linear infinite;
+          filter: blur(2px) drop-shadow(0 2px 2px rgba($dark, 0.1));
+        }
+      }
+
+      &:nth-child(10) {
+        z-index: 8;
+        transform: translate(-45vw, 30px) scale(0.5);
+
+        @include breakpoint(md) {
+          transform: translate(-30vw, 30px) scale(0.7);
+        }
+        @include breakpoint(lg) {
+          transform: translate(-290%, -20px) scale(0.5);
+        }
+
+        #{$papa}__img {
+          animation: float 3.5s 2s linear infinite;
+          filter: blur(10px) drop-shadow(0 2px 2px rgba($dark, 0.1));
+        }
+      }
+
+      &:nth-child(11) {
+        z-index: 9;
+        transform: translate(15vw, 0) scale(1.5);
+
+        @include breakpoint(md) {
+          transform: translate(10vw, 0) scale(1.5);
+        }
+        @include breakpoint(lg) {
+          transform: translate(100%, -50px) scale(1.5);
+        }
+
+        #{$papa}__img {
+          animation: float 3.5s 2s linear infinite;
+          filter: blur(0px) drop-shadow(0 2px 2px rgba($dark, 0.1));
+        }
+      }
+    }
+  }
+}
+
+/**
+ 頁尾
+ */
+.footer {
+  background: $yellow;
+  height: 100px;
+  color: $white;
+  font-weight: bold;
+  font-style: px-em(14);
+  @include flex-center;
+
+  &__inner {
+    max-width: 960px;
+    flex: 1 1 auto;
+    padding: 0 30px;
+
+    @include breakpoint(md) {
+      @include flex-seperate;
+    }
+    @include breakpoint(lg) {
+      padding: 0;
+    }
+  }
+
+  &__logo {
+    width: 250px;
+    margin-bottom: .5rem;
+  }
+}

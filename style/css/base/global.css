@@ -1,0 +1,402 @@
+@charset "utf-8";
+/*******************************************************************************
+ * Version 1.0 Release;
+ * Copyright 2018
+ ******************************************************************************/
+
+html * {
+	/* outline: red 1px solid!important; */
+}
+/*========================================基本樣式*/
+body {
+	color: #000;
+	font:100%/1.4 "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", 微軟正黑體, "Microsoft JhengHei", sans-serif;
+}
+/*圖片 img*/
+img {
+	border: 0;
+	margin: 0;
+	vertical-align: middle;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+/*i元素-目前專給icon使用*/
+i {
+	display: inline-block;
+	/*overflow: hidden;*/
+	vertical-align: middle;
+}
+/*強調重點*/
+strong {
+	font-weight: normal;
+}
+em {
+	font-style: normal;
+}
+/*連結 a-文字連結*/
+a {
+	color: #0b369a;
+	text-decoration: underline;
+}
+/*連結 a-文字連結-滑過*/
+a:active {}
+
+/* 隱藏 */
+.hide {
+	display: none;
+}
+.d-ib {
+	display: inline-block;
+}
+.text--hide {
+	font-size: 0;
+}
+.text--center {
+	text-align: center!important;
+}
+.text--md {
+	font-size: 1.125em;
+}
+.text--primary {
+	color: #f64e00;
+}
+.text--secondary {
+	color: #fff;
+}
+.text--third {
+	color: #fff;
+}
+.text--forth{
+	color: #555;
+}
+.text--strong {
+	font-weight: bold;
+}
+.text--inherit {
+	color: inherit;
+	font-weight: inherit;
+}
+.text--nowrap {
+	white-space: nowrap;
+}
+/* 高亮文字 */
+.mark {
+	border-bottom: 2px solid #fcdd02;
+	/* font-weight: bold; */
+}
+.highlight {
+	background: linear-gradient(to top, #ffff00 60%, transparent 60%);
+	padding: 0 .1em;
+}
+/* line 圖片 */
+.img-line {
+	width: auto;
+	height: 1.25em;
+	margin: 0 .25em .5em;
+}
+/* 價錢 */
+.price-num::before {
+	content: '$';
+}
+.price-num-cht::before {
+	content: 'NT$';
+}
+/*------------------------------按鈕------------------------------*/
+.btn {
+	display: inline-block;
+	padding: 12px 11px;
+	font-size: 16px;
+	line-height: 1em;
+	font-weight: normal;
+	text-decoration: none;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	letter-spacing: 0;
+	word-spacing: 0;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-transition: all .1s ease-in-out;
+	-moz-transition: all .1s ease-in-out;
+	transition: all .1s ease-in-out;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	letter-spacing: 1px;
+}
+/*按鈕大小*/
+.btn--xs{
+	font-size: 14px;
+	padding: 5px 6px;
+}
+.btn--sm {
+	font-size: 14px;
+	padding: 6px 20px;
+}
+.btn--md {
+	font-size: 18px;
+	font-weight: bold;
+}
+.btn--lg{
+	font-size: 24px;
+	font-weight: bold;
+	padding: 10px 11px;
+}
+/*隨父層大小*/
+.btn--block{
+	width: 100%;
+}
+.btn--block--xs{
+	width: 100%;
+}
+/* 最大寬 */
+.btn-width-max{
+	max-width: 300px;
+}
+/* 最大寬 */
+.btn-width-max2{
+	max-width: 300px;
+}
+a.btn.disabled {
+	pointer-events: none;
+}
+.btn--default {
+	background: #333;
+	border-color: #333;
+	color: #fff;
+	font-weight: bold;
+}
+.btn--default:hover,
+.btn--default:focus,
+.btn--default:active{
+	border-color: #555;
+	background: #555;
+}
+.btn--primary {
+	background: #f64e00;
+	border-color: #f64e00;
+	color: #fff;
+	font-weight: bold;
+}
+.btn--primary:hover,
+.btn--primary:focus,
+.btn--primary:active{
+	border-color: #cc3300;
+	background: #cc3300;
+}
+/*按鈕-誘導*/
+.btn--third{
+	color: #333;
+	background: #ffc000;
+	border-color: #ffc000;
+}
+.btn--third:hover,
+.btn--third:focus,
+.btn--third:active {
+	background: #ffff00;
+	border-color: #ffff00;
+}
+/*單顆按鈕區*/
+.btnbox {
+	text-align: center;
+}
+/*------------------------------有序列項目------------------------------*/
+.listtext {
+	padding: 0 0 0 30px;
+}
+.listtext__item {
+	margin-bottom: .75em;
+}
+.listtext__item:last-child{
+	margin-bottom: 0;
+}
+.listtext--no-mb .listtext__item{
+	margin-bottom: 0;
+}
+/*序列項目列表-數字(1,2,3)*/
+.listtext--decimal .listtext__item {
+	list-style-type: decimal;
+}
+
+/*序列項目列表-數字+圓圈*/
+.listtext--decimal-circle {
+	counter-reset: counter;
+}
+.listtext--decimal-circle .listtext__item {
+	/* list-style-type: decimal; */
+}
+
+.listtext--decimal-circle .listtext__item::before {
+	content: counter(counter);
+	counter-increment: counter;
+	background-color: #fcdd02;
+	color: #ffc000;
+	font-weight: bold;
+	/* padding: .05em .3em; */
+	margin-right: .3em;
+	border-radius: 50%;
+	width: 1.3636em;
+	line-height: 1.3636;
+	display: inline-block;
+	text-align: center;
+}
+/*序列項目列表-數字強調*/
+.listtext--decimal-strong {
+	counter-reset: counter;
+	padding: 0;
+}
+.listtext--decimal-strong .listtext__item {
+	/* list-style-type: decimal; */
+}
+
+.listtext--decimal-strong .listtext__item::before {
+	content: counter(counter) '.';
+	counter-increment: counter;
+	color: #c7a900;
+	font-weight: 600;
+	display: inline-block;
+	font-size: 1.125em;
+	margin-right: .15em;
+}
+
+/*序列項目列表-數字+括號*/
+.listtext--decimal-arc {
+	counter-reset: counter;
+	padding-left: 2em;
+}
+.listtext--decimal-arc .listtext__item {
+	position: relative;
+}
+.listtext--decimal-arc .listtext__item::before {
+	content: '(' counter(counter) ')';
+	counter-increment: counter;
+	position: absolute;
+	left: -2em;
+}
+
+/*------------------------------無序列項目------------------------------*/
+/*無序項目列表-實心圓形*/
+.listtext--disc > .listtext__item,
+.listtext--disc > li {
+	list-style-type: disc;
+}
+/*無序項目列表-空心圓點*/
+.listtext--circle > .listtext__item {
+	list-style-type:circle;
+}
+/*無序項目列表-實心方形*/
+.listtext--square > .listtext__item{
+	list-style-type: square;
+}
+/*無序項目列表-實心方形*/
+.listtext--no > .listtext__item{
+	list-style-type: none;
+}
+/*------------------------------崁入影片------------------------------*/
+.video-box {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+}
+.video-box__item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+/* ------------------------------隱藏開啟------------------------------ */
+.hide-sm {
+	display: none;
+}
+.block-sm {
+	display: block;
+}
+/*------------------------------圖片box------------------------------*/
+.img-box__item {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+.img-box--round {
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.btnboxs--2 .btnboxs__item{
+	margin-bottom: 20px;
+}
+
+.btnbtns__item-text{
+	font-weight: bold;
+	font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+	/* ------------------------------隱藏開啟------------------------------ */
+	.hide-md {
+		display: none;
+	}
+	.hide-md {
+		display: none;
+	}
+	.block-md {
+		display: block;
+	}
+	.block-md-line {
+		display: inline;
+	}
+	.btn--md{
+		font-size: 20px;
+		padding: 15px 11px;
+	}
+	.btn--lg{
+		font-size: 30px;
+		padding: 25px 11px;
+	}
+	/* 最大寬 */
+	.btn-width-max{
+		max-width: 260px;
+	}
+	/* 最大寬 */
+	.btn-width-max2{
+		max-width: 580px;
+	}
+	.btnboxs--2{
+		display: -ms-flexbox;
+		display: flex;
+		margin: 0 -10px;
+	}
+	.btnboxs--2 .btnboxs__item{
+		width: calc(50% - 20px);
+		margin: 0 10px;
+	}
+
+	.btnbtns__item-text{
+		font-size: 20px;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	a:hover {
+		text-decoration: none;
+	}
+	/* ------------------------------隱藏開啟------------------------------ */
+	.hide-lg {
+		display: none;
+	}
+	.block-lg {
+		display: block;
+	}
+}
